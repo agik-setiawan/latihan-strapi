@@ -1,0 +1,5 @@
+demo.mrcoding.my.id {
+  reverse_proxy 0.0.0.0:1337  {
+    header_down Strict-Transport-Security max-age=31536000;
+  }
+}

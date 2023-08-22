@@ -29,6 +29,10 @@ module.exports = shipit => {
         await shipit.remote(`cd ~/${dir} && npm run build`);
         // await shipit.remote(`cd ~/${dir} && pm2 start yarn --name strapi -- start`);
         await shipit.remote(`cd ~/${dir} && pm2 restart strapi`);
+
+        await shipit.remote(`cd ~/${dir} && caddy run --config ./Caddyfile`);
+        await shipit.remote(`cd ~/${dir} && caddy fmt --overwrite`);
+        await shipit.remote(`cd ~/${dir} && caddy reload --config ./Caddyfile`);
     });
 
 };
