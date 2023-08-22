@@ -22,6 +22,7 @@ module.exports = shipit => {
         const dir = "strapi";
 
         // await shipit.remote(`mkdir ~/${dir}`);
+        await shipit.remote(`cd ~/${dir} && git stash`);
         // await shipit.remote(`cd ~/${dir} && git clone ${git} .`);
         await shipit.remote(`cd ~/${dir} && git pull ${git}`);
         // await shipit.remote(`cd ~/${dir} && cp .env.prod .env`);
@@ -30,9 +31,9 @@ module.exports = shipit => {
         // await shipit.remote(`cd ~/${dir} && pm2 start yarn --name strapi -- start`);
         // await shipit.remote(`cd ~/${dir} && pm2 restart strapi`);
 
-        await shipit.remote(`cd ~/${dir} && caddy run --config ./Caddyfile`);
-        // await shipit.remote(`cd ~/${dir} && caddy fmt --overwrite`);
-        // await shipit.remote(`cd ~/${dir} && caddy reload --config ./Caddyfile`);
+        // await shipit.remote(`cd ~/${dir} && caddy run --config ./Caddyfile`);
+        await shipit.remote(`cd ~/${dir} && caddy fmt --overwrite`);
+        await shipit.remote(`cd ~/${dir} && caddy reload --config ./Caddyfile`);
     });
 
 };
