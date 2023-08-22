@@ -1,8 +1,5 @@
-{
-    admin 143.198.93.155:2020
-}
 demo.mrcoding.my.id {
-  reverse_proxy 143.198.93.155:1337  {
+  reverse_proxy 0.0.0.0:1337  {
     header_down Strict-Transport-Security max-age=31536000;
   }
 }
